@@ -44,7 +44,13 @@
     "url": "https://github.com/jcoreio/redux-form-create-structured-form-selector.git"
   },
   "keywords": [
-    "es2015"
+    "redux",
+    "redux-form",
+    "reselect",
+    "selector",
+    "selector-creator",
+    "mapStateToProps",
+    "createStructuredSelector"
   ],
   "author": "Andy Edwards",
   "license": "MIT",
@@ -81,8 +87,19 @@
     "istanbul": "^0.4.5",
     "mocha": "^4.1.0",
     "nyc": "^11.4.1",
+    "react": "^16.4.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-form": "^7.3.0",
     "rimraf": "^2.6.0",
     "semantic-release": "^15.1.4",
     "travis-deploy-once": "^4.3.1"
+  },
+  "dependencies": {
+    "lodash.mapvalues": "^4.6.0",
+    "reselect": "^3.0.1"
+  },
+  "peerDependencies": {
+    "redux-form": "^7.3.0"
   }
 }

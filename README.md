@@ -7,8 +7,14 @@
 
 create a structured selector that selects various state from a redux-form
 
-## Installation
+## Setup
 
 ```sh
 npm install --save redux-form-create-structured-form-selector
 ```
+
+## Webpack Note
+
+The `package.json` of this module includes a `module` field linking to untranspiled modern JS code, so if you are building for
+legacy browsers you will need to include this package in a `babel-loader` rule to transpile it.
+
