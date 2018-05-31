@@ -1,5 +1,5 @@
 {
-  "name": "redux-form-create-structured-form-selector",
+  "name": "redux-form-reselect",
   "version": "0.0.0-development",
   "description": "create a structured selector that selects various state from a redux-form",
   "main": "lib/index.js",
@@ -41,7 +41,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jcoreio/redux-form-create-structured-form-selector.git"
+    "url": "https://github.com/jcoreio/redux-form-reselect.git"
   },
   "keywords": [
     "redux",
@@ -55,9 +55,9 @@
   "author": "Andy Edwards",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jcoreio/redux-form-create-structured-form-selector/issues"
+    "url": "https://github.com/jcoreio/redux-form-reselect/issues"
   },
-  "homepage": "https://github.com/jcoreio/redux-form-create-structured-form-selector#readme",
+  "homepage": "https://github.com/jcoreio/redux-form-reselect#readme",
   "devDependencies": {
     "@commitlint/cli": "^6.0.2",
     "@commitlint/config-conventional": "^6.0.2",

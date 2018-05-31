@@ -1,7 +1,7 @@
-# redux-form-create-structured-form-selector
+# redux-form-reselect
 
-[![Build Status](https://travis-ci.org/jcoreio/redux-form-create-structured-form-selector.svg?branch=master)](https://travis-ci.org/jcoreio/redux-form-create-structured-form-selector)
-[![Coverage Status](https://codecov.io/gh/jcoreio/redux-form-create-structured-form-selector/branch/master/graph/badge.svg)](https://codecov.io/gh/jcoreio/redux-form-create-structured-form-selector)
+[![Build Status](https://travis-ci.org/jcoreio/redux-form-reselect.svg?branch=master)](https://travis-ci.org/jcoreio/redux-form-reselect)
+[![Coverage Status](https://codecov.io/gh/jcoreio/redux-form-reselect/branch/master/graph/badge.svg)](https://codecov.io/gh/jcoreio/redux-form-reselect)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
@@ -10,7 +10,7 @@ create a structured selector that selects various state from a redux-form
 ## Setup
 
 ```sh
-npm install --save redux-form-create-structured-form-selector
+npm install --save redux-form-reselect
 ```
 
 ## Webpack Note
@@ -28,7 +28,7 @@ import {
   hasSubmitFailed,
   getFormError,
 } from 'redux-form'
-import createStructuredFormSelector from 'redux-form-create-structured-form-selector'
+import {createStructuredFormSelector} from 'redux-form-reselect'
 import {connect} from 'react-redux'
 import {mount} from 'react-dom'
 
@@ -55,6 +55,10 @@ const FormStatus = connect(mapStateToProps)(
 
 ### `createStructuredFormSelector(selectorMap, options = {})`
 
+```js
+import {createStructuredFormSelector} from 'redux-form-reselect'
+```
+
 Uses `createStructuredSelector` to create a `mapStateToProps` function based upon the provided `redux-form` selectors
 in `selectorMap`.
 
@@ -65,9 +69,10 @@ override this by passing `options.selectFormName`.
 
 #### `selectorMap` (*Required*)
 
-An object, where the key in each entry is the output prop name, and the value is a
-[`redux-form` selector](https://redux-form.com/7.3.0/docs/api/selectors.md/) taking arguments
-`(formName: String, getFormState?: ?(state: State) => any))` and returning a `(state: State) => any` selector function.
+An object, where the key in each entry is the output prop name, and the value is either a:
+* [`redux-form` selector](https://redux-form.com/7.3.0/docs/api/selectors.md/) taking arguments
+  `(formName: String, getFormState?: ?(state: State) => any))` and returning a `(state: State) => any` selector function.
+* `string` field name, in which case the value of that field in the form will be selected.
 
 #### `options.getFormState` (*Optional*)
 

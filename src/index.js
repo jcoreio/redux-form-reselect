@@ -4,8 +4,8 @@ import mapValues from 'lodash.mapvalues'
 import {formValueSelector} from 'redux-form'
 import {createSelector, createStructuredSelector} from 'reselect'
 
-export default function createStructuredFormSelector<State, InputProps: Object, ReduxFormProps: Object, AdditionalSelectorProps: Object>(
-  selectors: $ObjMap<ReduxFormProps, <V>(V) => ((form: string) => (state: State) => V)>,
+export function createStructuredFormSelector<State, InputProps: Object, ReduxFormProps: Object, AdditionalSelectorProps: Object>(
+  selectors: $ObjMap<ReduxFormProps, <V>(V) => (string | ((form: string) => (state: State) => V))>,
   options: {
     +selectFormName?: ?(state: State, props: InputProps) => string,
     +getFormState?: ?(state: State) => any,
@@ -17,7 +17,10 @@ export default function createStructuredFormSelector<State, InputProps: Object, 
   const selectSelector = createSelector(
     selectFormName,
     (form: string) => createStructuredSelector({
-      ...mapValues(selectors, selector => selector(form, getFormState)),
+      ...mapValues(selectors, selector => typeof selector === 'string'
+        ? value(selector)(form, getFormState)
+        : selector(form, getFormState)
+      ),
       ...additionalSelectors || {},
     })
   )
