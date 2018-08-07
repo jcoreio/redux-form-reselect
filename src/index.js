@@ -1,6 +1,5 @@
 // @flow
 
-import mapValues from 'lodash.mapvalues'
 import {formValueSelector} from 'redux-form'
 import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -16,13 +15,16 @@ export function createStructuredFormSelector<State, InputProps: Object, ReduxFor
   const selectFormName = options.selectFormName || ((state: State, {form}: any) => form)
   const selectSelector = createSelector(
     selectFormName,
-    (form: string) => createStructuredSelector({
-      ...mapValues(selectors, selector => typeof selector === 'string'
-        ? value(selector)(form, getFormState)
-        : selector(form, getFormState)
-      ),
-      ...additionalSelectors || {},
-    })
+    (form: string) => {
+      const structure = {}
+      for (let key in selectors) {
+        const selector = selectors[key]
+        structure[key] = typeof selector === 'string'
+          ? value(selector)(form, getFormState)
+          : selector(form, getFormState)
+      }
+      return createStructuredSelector({...structure, ...additionalSelectors})
+    }
   )
   return (state: State, props: InputProps) => selectSelector(state, props)(state, props)
 }

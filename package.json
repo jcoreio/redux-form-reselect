@@ -20,7 +20,7 @@
     "prepush": "npm test",
     "prepublishOnly": "npm run lint && flow && npm test && npm run build",
     "open:coverage": "open coverage/lcov-report/index.html",
-    "semantic-release": "semantic-release",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "travis-deploy-once": "travis-deploy-once"
   },
   "config": {
@@ -92,11 +92,10 @@
     "redux": "^4.0.0",
     "redux-form": "^7.3.0",
     "rimraf": "^2.6.0",
-    "semantic-release": "^15.1.4",
+    "semantic-release": "^15.5.0",
     "travis-deploy-once": "^4.3.1"
   },
   "dependencies": {
-    "lodash.mapvalues": "^4.6.0",
     "reselect": "^3.0.1"
   },
   "peerDependencies": {
