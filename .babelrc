@@ -1,12 +1,27 @@
 {
+  "plugins": [
+    "syntax-dynamic-import",
+    "transform-class-properties",
+    "transform-export-extensions",
+    "transform-object-rest-spread"
+  ],
   "presets": [
-    "stage-1", "flow"
+    "flow"
   ],
   "env": {
     "test": {
       "presets": [
         ["env", {"targets": {"node": "current"}}],
-        "stage-1", "flow"
+        "flow"
+      ],
+      "plugins": [
+        "transform-runtime"
+      ]
+    },
+    "coverage": {
+      "presets": [
+        ["env", {"targets": {"node": "current"}}],
+        "flow"
       ],
       "plugins": [
         "transform-runtime",
