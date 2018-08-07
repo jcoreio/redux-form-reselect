@@ -1,6 +1,7 @@
 [ignore]
 <PROJECT_ROOT>/lib/.*
 <PROJECT_ROOT>/module/.*
+<PROJECT_ROOT>/node_modules/.*/test/.*
 
 [include]
 ./src
