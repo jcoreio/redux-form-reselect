@@ -108,6 +108,6 @@
     "reselect": "^3.0.1"
   },
   "peerDependencies": {
-    "redux-form": "^7.3.0"
+    "redux-form": "^7.3.0 || ^8.0.0"
   }
 }
