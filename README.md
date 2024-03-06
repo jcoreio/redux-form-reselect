@@ -7,6 +7,10 @@
 
 create a structured selector that selects various state from a redux-form
 
+# DEPRECATED
+
+This library is no longer being actively maintained.  I haven't found it that useful now that I can accomplish similar things more easily with React custom hooks.
+
 ## Setup
 
 ```sh
